@@ -9,7 +9,7 @@ namespace Mobile
     public class Config
     {
 
-        public const string BaseLoginUrl = "http://dokkuapp.com:3005";
+        public const string BaseLoginUrl = "http://dokkuapp.coms:3005";
         public const string BaseUrl = "http://dokkuapp.com:3005/api/v1";
         public const string google_secret_key = "AIzaSyDgZAaDRW7H6EWdT8exxHSNcFZPOoR-mCU";
         public const string client_id = "806258fc8a80342850da5404e8ebc974ef065ab89a53a8eb53740a34bdab0df2";
