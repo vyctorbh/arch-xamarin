@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<BasePage xmlns="http://xamarin.com/schemas/2014/forms"
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          x:Class="Mobile.View.LoginPage">
+
+  <AbsoluteLayout>
+    <StackLayout Spacing="20" Padding="50" VerticalOptions="Center" HorizontalOptions="Center" AbsoluteLayout.LayoutFlags="PositionProportional"
+                       AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1">
+      <Image Source="logo.png"></Image>
+      <Entry Placeholder="Usuario" Text="{Binding Login.Email}"/>
+      <Entry Placeholder="Senha" Text="{Binding Login.Password}" IsPassword="true"/>
+      <Button Text="Entrar" TextColor="White" BackgroundColor="#5ec8de" Command="{Binding LoginCommand}" IsEnabled="{Binding NotIsBusy}"></Button>
+    </StackLayout>
+    <ContentView x:Name="actIndBackground"
+                 BackgroundColor="#222222" Opacity="0.5"
+                 AbsoluteLayout.LayoutFlags="All"
+                 AbsoluteLayout.LayoutBounds="0,0,1,1"
+                 IsVisible="{Binding IsBusy}">
+    </ContentView>
+    <ActivityIndicator x:Name="actInd"
+                       AbsoluteLayout.LayoutFlags="PositionProportional"
+                       AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+                       IsRunning="{Binding IsBusy}"
+                       IsVisible="{Binding IsBusy}" />
+  </AbsoluteLayout>
+
+</BasePage>

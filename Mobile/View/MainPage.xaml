@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<BasePage xmlns="http://xamarin.com/schemas/2014/forms"
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          xmlns:Controls="clr-namespace:Mobile.Helper"
+          xmlns:XlabsControls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+          xmlns:local="clr-namespace:Mobile.View"
+          x:Class="Mobile.View.MainPage" Title="Descubra">
+  <BasePage.Resources>
+    <ResourceDictionary>
+      <Style x:Key="SearchStyle" TargetType="SearchBar">
+        <Setter Property="BackgroundColor" Value="#c8c8cd"/>
+      </Style>
+    </ResourceDictionary>
+  </BasePage.Resources>
+  <BasePage.ToolbarItems>
+    <ToolbarItem Name="Menu1" Icon="Map" Command="{Binding IconbarCommand}"/>
+  </BasePage.ToolbarItems>
+  <AbsoluteLayout>
+    <StackLayout Orientation="Vertical">
+      <SearchBar Placeholder="Procurar por evento ou localidade." VerticalOptions="Start" Style="{StaticResource SearchStyle}" SearchCommand="{Binding SearchCommand}" Text="{Binding SearchItem,Mode=TwoWay}" />
+      <!--<XlabsControls:ButtonGroup x:Name="bgButton" ViewBackgroundColor="#c8c8cd" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" >
+    </XlabsControls:ButtonGroup>
+      <Controls:InfiniteListView x:Name="listViews" ItemsSource="{Binding Items}" VerticalOptions="Start" LoadMoreCommand="{Binding LoadMoreCommand}" IsLoading="{Binding IsLoading}">-->
+      <Controls:InfiniteListView x:Name="listViews" VerticalOptions="Start"> 
+        <Controls:InfiniteListView.ItemTemplate>
+          <DataTemplate>
+            <!--<ViewCell>
+              <StackLayout BackgroundColor="#eee"
+              Orientation="Vertical">
+                <StackLayout Orientation="Horizontal">
+                  <Label Text="{Binding nome}"
+                  TextColor="#f35e20"/>
+                  <Label Text="{Binding adrress}"
+                    TextColor="#f35e20" />
+                  <Label Text="{Binding cidade}"
+                    TextColor="#f35e20" />
+                </StackLayout>
+              </StackLayout>
+            </ViewCell>-->
+              <local:AccordionCell IsSelected="{Binding Path=IsSelected}" />
+          </DataTemplate>
+        </Controls:InfiniteListView.ItemTemplate>
+      </Controls:InfiniteListView >
+    </StackLayout>
+    <ContentView x:Name="actIndBackground"
+                 BackgroundColor="#222222" Opacity="0.5"
+                 AbsoluteLayout.LayoutFlags="All"
+                 AbsoluteLayout.LayoutBounds="0,0,1,1"
+                 IsVisible="{Binding IsBusy}">
+    </ContentView>
+    <ActivityIndicator x:Name="actInd"
+                       AbsoluteLayout.LayoutFlags="PositionProportional"
+                       AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+                       IsRunning="{Binding IsBusy}"
+                       IsVisible="{Binding IsBusy}" />
+  </AbsoluteLayout>
+</BasePage>
