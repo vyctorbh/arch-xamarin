@@ -93,6 +93,7 @@
     <None Include="app.config" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
+    <Compile Include="MyEntryRenderer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="packages.config" />
   </ItemGroup>
@@ -267,6 +268,12 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\ic_chevron.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\demo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\demo%402x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

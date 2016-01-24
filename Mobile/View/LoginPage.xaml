@@ -1,15 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <BasePage xmlns="http://xamarin.com/schemas/2014/forms"
           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-          x:Class="Mobile.View.LoginPage">
+          xmlns:local="clr-namespace:Mobile.Helper;assembly=Mobile"
+          xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+          x:Class="Mobile.View.LoginPage" BackgroundImage="demo.png">
+  <BasePage.Resources>
+    <ResourceDictionary>
+      <Style x:Key="EntryStyle" TargetType="Entry">
+      </Style>
+    </ResourceDictionary>
+  </BasePage.Resources>
 
-  <AbsoluteLayout>
-    <StackLayout Spacing="20" Padding="50" VerticalOptions="Center" HorizontalOptions="Center" AbsoluteLayout.LayoutFlags="PositionProportional"
-                       AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1">
-      <Image Source="logo.png"></Image>
-      <Entry Placeholder="Usuario" Text="{Binding Login.Email}"/>
-      <Entry Placeholder="Senha" Text="{Binding Login.Password}" IsPassword="true"/>
-      <Button Text="Entrar" TextColor="White" BackgroundColor="#5ec8de" Command="{Binding LoginCommand}" IsEnabled="{Binding NotIsBusy}"></Button>
+  <AbsoluteLayout Opacity="1">
+    <ContentView BackgroundColor="#9d231c" Opacity="0.8" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" AbsoluteLayout.LayoutFlags="All"
+                 AbsoluteLayout.LayoutBounds="0,0,1,0.30" HeightRequest="100">
+        <Image Source="logo.png"></Image>
+    </ContentView>
+    <StackLayout Spacing="0" Padding="50" VerticalOptions="Center" HorizontalOptions="Center" AbsoluteLayout.LayoutFlags="PositionProportional"
+                       AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1" HeightRequest="50" WidthRequest="200">
+      <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="90" />
+          <RowDefinition Height="35" />
+          <RowDefinition Height="35" />
+          <RowDefinition Height="35" />
+        </Grid.RowDefinitions>
+        <StackLayout Grid.Row="0" Grid.Column="0" Spacing="0">
+          <StackLayout VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="330" Orientation="Horizontal">
+           <Image Source="leads.png" WidthRequest="25" HorizontalOptions="Center" VerticalOptions="Center"/>
+           <local:MyEntry Opacity="0.5" Placeholder="Login" Text="{Binding Login.Email}" WidthRequest="200" HeightRequest="40" TextColor="#FFF"/>
+          </StackLayout>
+          <StackLayout VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="330" Orientation="Horizontal">
+           <Image Source="leads.png" WidthRequest="25" HorizontalOptions="Center" VerticalOptions="Center"/>
+           <local:MyEntry Opacity="0.5" Placeholder="Senha" Text="{Binding Login.Password}" IsPassword="true" WidthRequest="200" HorizontalOptions="StartAndExpand" HeightRequest="40" TextColor="#FFF"/>
+          </StackLayout>
+          <!--<local:MyEntry Opacity="0.5" Placeholder="Senha" Text="{Binding Login.Password}" IsPassword="true" WidthRequest="200" HeightRequest="40" TextColor="#FFF"/>-->
+        </StackLayout>
+        <Button Grid.Row="1" Grid.Column="0" Text="Fazer Login" TextColor="White" BackgroundColor="#9d231c" Command="{Binding LoginCommand}" IsEnabled="{Binding NotIsBusy}"></Button>
+      </Grid>
     </StackLayout>
     <ContentView x:Name="actIndBackground"
                  BackgroundColor="#222222" Opacity="0.5"
