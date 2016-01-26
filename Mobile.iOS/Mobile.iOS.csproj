@@ -225,9 +225,6 @@
     <BundleResource Include="Resources\logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\logo%402x - Copy.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\logo%402x.png" />
   </ItemGroup>
   <ItemGroup>
@@ -274,6 +271,33 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\demo%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logo-login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logo-login%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\splash-2048.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\splash-320x480.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\splash%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\key%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\user%402x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

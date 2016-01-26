@@ -68,19 +68,19 @@ namespace Mobile.ViewModel
                                IsBusy = true;
                                using (var releaser = await _lock.LockAsync())
                                {
-                                   await Login.Authenticate();
+                                   //await Login.Authenticate();
 
-                                   if (Login.IsAuthenticated)
-                                   {
+                                   //if (Login.IsAuthenticated)
+                                   //{
                                        IsBusy = false;
                                        _defaultMessenger.Send(Login.Value);
                                        await _appLoader.LoadStack(StackEnum.Main);
-                                   }
-                                   else
-                                   {
-                                       IsBusy = false;
-                                       await this._messageService.ShowAsync(Login.Value);
-                                   }
+                                   //}
+                                   //else
+                                   //{
+                                   //    IsBusy = false;
+                                   //    await this._messageService.ShowAsync(Login.Value);
+                                   //}
                                }                               
 
                            }));
