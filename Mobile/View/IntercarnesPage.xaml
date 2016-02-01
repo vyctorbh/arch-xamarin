@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <BasePage xmlns="http://xamarin.com/schemas/2014/forms"
           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-          x:Class="Mobile.View.AboutPage">
+          x:Class="Mobile.View.IntercarnesPage">
   <AbsoluteLayout>
     <StackLayout>
-      <Label Text="Ola oijiosjoi jisjdo jsoijdojs odijosj dijs odjisjiodjso" />
+      <Label Text="Intercarnes" />
     </StackLayout>
   </AbsoluteLayout>
 </BasePage>

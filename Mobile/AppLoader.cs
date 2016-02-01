@@ -64,7 +64,7 @@ namespace Mobile
         {
             SimpleIoc.Default.Register<IAuthenticationRepository>(() => new AuthenticationRepository(Config.BaseUrlAfrig, Config.client_id, Config.secret_id));
             SimpleIoc.Default.Register<IExampleRepository>(() => new ExampleRepository(Config.BaseUrl, "examples"));
-            SimpleIoc.Default.Register<IAddressRepository>(() => new AddressRepository(Config.BaseUrl));
+            SimpleIoc.Default.Register<IAddressRepository>(() => new AddressRepository(Config.BaseUrlAfrig));
         }
 
         private void InitializeDataServices()

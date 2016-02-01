@@ -54,25 +54,7 @@ namespace Mobile.ViewModel
             set
             {
                 _Items = value;
-                if (value != null && value.Count > 0)
-                {
-                    this.qtdrows = value[0].qtdrows;
-                }
                 RaisePropertyChanged(() => Items);
-            }
-        }
-
-        private List<string> _ButtonItems;
-        public List<string> ButtonItems
-        {
-            get
-            {
-                return _ButtonItems;
-            }
-            set
-            {
-                _ButtonItems = value;
-                RaisePropertyChanged(() => ButtonItems);
             }
         }
 
@@ -87,8 +69,8 @@ namespace Mobile.ViewModel
 
         protected virtual async void ExecuteLoadModelsCommand()
         {
-            await MainModel.List(null, null, null, this.numberpage, this.skippage);
-            this.Items = MainModel.Items;
+            //await MainModel.List(null, null, null, this.numberpage, this.skippage, this.Message);
+            //this.Items = MainModel.Items;
         }
 
         public MainViewModel(IAppLoader appLoader, MainModel mainModel, IDefaultMessenger defaultMessenger) : base(defaultMessenger)
@@ -100,13 +82,6 @@ namespace Mobile.ViewModel
             _defaultMessenger = defaultMessenger;
             this.numberpage = "20";
             this.skippage = "0";
-            LoadModelsCommand.Execute(null);
-
-            /*ButtonItems = new ObservableCollection<string>
-            {
-                "Xamarin",
-                "Xamarin.Forms"
-            };*/
         }
 
 
@@ -117,7 +92,8 @@ namespace Mobile.ViewModel
 
         private void ReceiveNotification(string message)
         {
-            Message = message;
+            if(message.Contains("Basic"))
+                Message = message;
         }
 
         private string _message = "Default Message";
@@ -130,21 +106,8 @@ namespace Mobile.ViewModel
             set
             {
                 _message = value;
+                LoadMoreCommand.Execute(null);
                 RaisePropertyChanged(() => Message);
-            }
-        }
-
-        private string _search = "";
-        public string SearchItem
-        {
-            get
-            {
-                return _search;
-            }
-            set
-            {
-                _search = value;
-                RaisePropertyChanged(() => SearchItem);
             }
         }
 
@@ -177,28 +140,6 @@ namespace Mobile.ViewModel
             }
         }
 
-        private RelayCommand _searchCommand;
-        public RelayCommand SearchCommand
-        {
-            get
-            {
-                return _searchCommand
-                       ?? (_searchCommand = new RelayCommand(
-                           async () =>
-                           {
-                               IsBusy = true;
-                               this.skippage = "0";
-                               using (var releaser = await _lock.LockAsync())
-                               {
-                                   await MainModel.List(this.SearchItem, null, null, this.numberpage, this.skippage);
-                                   this.Items = MainModel.Items;
-                                   IsLoading = false;
-                                   IsBusy = false;
-                               }
-                           }));
-            }
-        }
-
         private RelayCommand _loadmoreCommand;
         public RelayCommand LoadMoreCommand
         {
@@ -212,18 +153,39 @@ namespace Mobile.ViewModel
                                IsBusy = true;
                                using (var releaser = await _lock.LockAsync())
                                {
-                                   if (Convert.ToInt32(this.skippage) <= this.qtdrows && IsLoading)
-                                   {
-                                       this.skippage = (Convert.ToInt32(this.skippage) + Convert.ToInt32(this.numberpage)).ToString();
-                                       await MainModel.List(this.SearchItem, null, null, this.numberpage, this.skippage);
-                                       foreach (var item in MainModel.Items)
-                                       {
-                                           this.Items.Add(item);
-                                       }
-                                       IsLoading = false;
-                                       IsBusy = false;
-                                   }
+                                    //   this.skippage = (Convert.ToInt32(this.skippage) + Convert.ToInt32(this.numberpage)).ToString();
+                                    await MainModel.List("Associados", null, null, this.numberpage, this.skippage, this.Message);
+                                   this.Items = new ObservableCollection<MainModel>();
+                                    foreach (var item in MainModel.Items)
+                                    {
+                                        this.Items.Add(item);
+                                    }
+                                    IsLoading = false;
+                                    IsBusy = false;
                                }
+                           }));
+            }
+        }
+
+        private Command _detailsCommand;
+        public Command DetailsCommand
+        {
+            get
+            {
+                return _detailsCommand
+                       ?? (_detailsCommand = new Command<ItemTappedEventArgs>(
+                           async (item) =>
+                           {
+                               var navitem = (MainModel)item.Item;
+
+                               DetailsModel details = new DetailsModel();
+                               details.ID = navitem.id;
+                               MainModel.ItemNews = navitem;
+
+                               _defaultMessenger.Send(navitem.id.ToString());
+                               Mobile.PageLocator.Main _locator = new PageLocator.Main();
+                               var nav = this.NavigationService;
+                               nav.NavigateTo(_locator.DetailsPage);
                            }));
             }
         }

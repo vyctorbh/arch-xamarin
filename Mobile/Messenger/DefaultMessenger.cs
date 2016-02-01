@@ -14,5 +14,10 @@ namespace Mobile.Messenger
         {
             Send<string>(message);
         }
+
+        public void SendNotification(object message)
+        {
+            Send<object>(message);
+        }
     }
 }

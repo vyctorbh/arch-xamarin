@@ -15,10 +15,11 @@ namespace Mobile.Model
         IAddressService _addressservice;
 
         public int id { get; set; }
-        public string nome { get; set; }
-        public string address { get; set; }
-        public int qtdrows { get; set; }
-        public string cidade { get; set; }
+        public string link { get; set; }
+        public string title { get; set; }
+        public string date { get; set; }
+        public string image { get; set; }
+        public string content { get; set; }
         public bool IsLoading { get; set; }
 
         public ObservableCollection<MainModel> Items
@@ -26,6 +27,8 @@ namespace Mobile.Model
             get;
             set;
         }
+
+        public static MainModel ItemNews { get; set; }
 
         public MainModel()
         {
@@ -37,13 +40,10 @@ namespace Mobile.Model
             this._addressservice = addressservice;
         }
 
-        public async Task List(string search, string latitude, string longitude, string numberpage, string skippage)
+        public async Task List(string search, string latitude, string longitude, string numberpage, string skippage, string token)
         {
             this.IsLoading = true;
-            if (String.IsNullOrEmpty(search))
-            {
-                search = "Belo Horizonte";
-            }
+            latitude = token;
 
             ((AddressService)_addressservice).numberpage = numberpage;
             ((AddressService)_addressservice).skippage = skippage;
@@ -51,17 +51,17 @@ namespace Mobile.Model
             var items = await this._addressservice.Search(search, latitude, longitude);
 
             this.Items = new ObservableCollection<MainModel>();
-            //if(listaddress != null)
+            //f(listaddress != null)
             //    this.Items.Add(new MainModel() { nome = listaddress.address, id = 1 });
 
             int i = 1;
 
             foreach (var item in items.listaddress)
             {
-                this.Items.Add(new MainModel() { address = item.address, nome = item.description, cidade = item.cidade.nome, id = item.id, qtdrows = Convert.ToInt32(item.qtdrows) });
+                this.Items.Add(new MainModel() { title = item.title, link = item.link, id = item.ID, date = item.date, image = item.image.guid, content = item.content });
                 i++;
             }
-            Task.Delay(1000);
+            //Task.Delay(1000);
             this.IsLoading = false;
         }
     }

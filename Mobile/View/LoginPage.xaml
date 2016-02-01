@@ -14,7 +14,7 @@
   <AbsoluteLayout Opacity="1">
     <ContentView Opacity="1" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" AbsoluteLayout.LayoutFlags="All"
                  AbsoluteLayout.LayoutBounds="0,0,1,0.30" HeightRequest="45" WidthRequest="142">
-        <Image Source="logo-login.png" WidthRequest="142" HeightRequest="45" ></Image>
+        <Image Source="logologin.png" WidthRequest="142" HeightRequest="45" ></Image>
     </ContentView>
     <StackLayout Padding="50" VerticalOptions="Center" HorizontalOptions="Center" AbsoluteLayout.LayoutFlags="PositionProportional"
                        AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1" HeightRequest="50" WidthRequest="200">

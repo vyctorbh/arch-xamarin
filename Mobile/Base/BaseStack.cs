@@ -50,7 +50,7 @@ namespace Mobile.Stack
 
         protected virtual void MapPages() { }
         protected virtual void MapViewModels() { }
-        protected virtual string NavigationStartPageKey { get; }
+		protected virtual string NavigationStartPageKey { get; set; }
         
     }
 }

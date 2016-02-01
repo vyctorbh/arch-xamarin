@@ -9,5 +9,7 @@
     {
         public string MainPage = "MainPageKey";
         public string AboutPage = "AboutPageKey";
+        public string IntercarnesPage = "IntercarnesPageKey";
+        public string DetailsPage = "DetailsPageKey";
     }
 }

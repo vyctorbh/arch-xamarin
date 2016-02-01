@@ -31,10 +31,9 @@ namespace ApiRepository.Repository
         {
             using (var client = new RestClient(_client.BaseAddress))
             {
-                var request = new RestRequest("search", HttpMethod.Get);
-                request.AddParameter("address", search);
-                request.AddParameter("numberpage", numberpage);
-                request.AddParameter("skippage", skippage);
+                var request = new RestRequest("wp-json/posts", HttpMethod.Get);
+                request.AddHeader("Authorization", latitude);
+                request.AddParameter("filter[s]", search);
 
                 client.IgnoreResponseStatusCode = true;
 

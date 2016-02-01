@@ -20,13 +20,14 @@ namespace Mobile.Stack
         public MainStack(AppLoader appLoader)
         {
             _appLoader = appLoader;
-            var color = Mobile.Helper.Color.Blue.ToFormsColor();
+            var color = Mobile.Helper.Color.GrayAfrig.ToFormsColor();
             NavigationPage = new NavigationPage()
             {
                 BarBackgroundColor = color,
-                BarTextColor = Mobile.Helper.Color.White.ToFormsColor(),
-                Title = "Descubra"
+                BarTextColor = Color.Red
             };
+
+            //NavigationPage.SetTitleIcon(null, "logo.png");
 
             MainPage = new MasterDetailPage()
             {
@@ -44,7 +45,7 @@ namespace Mobile.Stack
                 Title = "Menu",
                 Icon = "Menu.png",  //TODO: add in default icon 
                 BindingContext = new MenuViewModel(),
-                BackgroundColor = Color.FromHex("5ec8de")
+                BackgroundColor = Color.FromHex("ff0000")
             };
         }
 
@@ -52,12 +53,16 @@ namespace Mobile.Stack
         {
             _navigationService.Map(_locator.MainPage, typeof(MainPage));
             _navigationService.Map(_locator.AboutPage, typeof(AboutPage));
+            _navigationService.Map(_locator.IntercarnesPage, typeof(IntercarnesPage));
+            _navigationService.Map(_locator.DetailsPage, typeof(DetailsPage));
         }
 
         protected override void MapViewModels()
         {
             _pageService.Map(typeof(MainPage), typeof(MainViewModel));
             _pageService.Map(typeof(AboutPage), typeof(AboutViewModel));
+            _pageService.Map(typeof(IntercarnesPage), typeof(IntercarnesViewModel));
+            _pageService.Map(typeof(DetailsPage), typeof(DetailsViewModel));
         }
 
         protected override string NavigationStartPageKey

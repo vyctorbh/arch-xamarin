@@ -14,15 +14,19 @@ namespace Mobile.View
         public MainPage()
         {
             InitializeComponent();
+            NavigationPage.SetHasBackButton(this, false);
 
-            var buttonGroupTagCloudItems = new List<string>
+            /*var buttonGroupTagCloudItems = new List<string>
             {
                 "Lista",
                 "Mapa"
             };
-            listViews.Items.Add(new AccordionItem { Title = "Item #1", Content = "Body content #1", IsSelected = true });
-            listViews.Items.Add(new AccordionItem { Title = "Item #2", Content = "Body content #2" });
-            listViews.Items.Add(new AccordionItem { Title = "Item #3", Content = "Body content #3" });
+            listViews.Items.Add(new AccordionItem { Title = "CICLO DE DEBATES RETOMADA DO DESENVOLVIMENTO", Content = "em 30/11/2015", Images = "http://afrig.com.br/wp-content/uploads/ICMS3.jpg", IsSelected = true });
+            listViews.Items.Add(new AccordionItem { Title = "INFORME PREVIDENCIARIO", Content = "em 30/11/2015", Images = "http://afrig.com.br/wp-content/uploads/ICMS3.jpg" });
+            listViews.Items.Add(new AccordionItem { Title = "Item #3", Content = "em 30/11/2015", Images = "http://afrig.com.br/wp-content/uploads/ICMS3.jpg" });
+            listViews.Items.Add(new AccordionItem { Title = "Item #3", Content = "em 30/11/2015", Images = "http://afrig.com.br/wp-content/uploads/ICMS3.jpg" });
+            listViews.Items.Add(new AccordionItem { Title = "Item #3", Content = "em 30/11/2015", Images = "http://afrig.com.br/wp-content/uploads/ICMS3.jpg" });
+            listViews.Items.Add(new AccordionItem { Title = "Item #3", Content = "em 30/11/2015", Images = "http://afrig.com.br/wp-content/uploads/ICMS3.jpg" });*/
             //bgButton.Items = buttonGroupTagCloudItems;
             //bgButton.ViewBackgroundColor = Color.FromHex("5ec8de");
             //bgButton.BackgroundColor = Color.FromHex("c8c8cd");

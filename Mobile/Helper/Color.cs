@@ -18,6 +18,7 @@ namespace Mobile.Helper
         public static readonly Color DarkGray = 0x333333;
         public static readonly Color Tint = 0x5AA09B;
         public static readonly Color White = 0xFFFFFF;
+        public static readonly Color GrayAfrig = 0xE3E3E3;
 
 
         public double R, G, B;
