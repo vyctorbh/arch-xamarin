@@ -6,24 +6,29 @@
   <!--<Button Text="Entrar" TextColor="White" BackgroundColor="#5ec8de" Command="{Binding AboutCommand}" HeightRequest="40"></Button>-->
   <AbsoluteLayout Opacity="1">
     <ContentView Opacity="1" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" AbsoluteLayout.LayoutFlags="All"
-                 AbsoluteLayout.LayoutBounds="0,0,1,0.30" HeightRequest="5" WidthRequest="142">
+                 AbsoluteLayout.LayoutBounds="0,0,1,0.30" HeightRequest="20" WidthRequest="142">
       <Label Text="Afrig News" TextColor="White" FontSize="15"></Label>
     </ContentView>
-    <local:MenuListView local:MenuListView.ListItemTappedCommand="{Binding AboutCommand}">
-      <local:MenuListView.ItemTemplate>
-        <DataTemplate>
-          <ViewCell>
-            <StackLayout BackgroundColor="Red"
-            Orientation="Vertical">
-              <StackLayout Orientation="Horizontal">
-                <Image Source="{Binding IconSource}" />
-                <Label Text="{Binding Title}"
-                TextColor="White" />
-              </StackLayout>
-            </StackLayout>
-          </ViewCell>
-        </DataTemplate>
-      </local:MenuListView.ItemTemplate>
-    </local:MenuListView>
+    <StackLayout Padding="20">
+    	<!--<StackLayout.Padding>
+    		<OnPlatform x:TypeArguments="Thickness" Android="20 20 20 20" />
+    	</StackLayout.Padding>-->
+	    <local:MenuListView local:MenuListView.ListItemTappedCommand="{Binding AboutCommand}">
+	      <local:MenuListView.ItemTemplate>
+	        <DataTemplate>
+	          <ViewCell>
+	            <StackLayout BackgroundColor="Red"
+	            Orientation="Vertical">
+	              <StackLayout Orientation="Horizontal">
+	                <Image Source="{Binding IconSource}" />
+	                <Label Text="{Binding Title}"
+	                TextColor="White" />
+	              </StackLayout>
+	            </StackLayout>
+	          </ViewCell>
+	        </DataTemplate>
+	      </local:MenuListView.ItemTemplate>
+	    </local:MenuListView>
+    </StackLayout>
   </AbsoluteLayout>
 </BasePage>

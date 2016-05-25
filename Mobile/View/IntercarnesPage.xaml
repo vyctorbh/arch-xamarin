@@ -1,10 +1,51 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <BasePage xmlns="http://xamarin.com/schemas/2014/forms"
           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          xmlns:Controls="clr-namespace:Mobile.Helper"
+          OnAppearingCommand="{Binding LoadMoreCommand}"
+          xmlns:XlabsControls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
           x:Class="Mobile.View.IntercarnesPage">
+<BasePage.Resources>
+    <ResourceDictionary>
+      <Style x:Key="SearchStyle" TargetType="SearchBar">
+        <Setter Property="BackgroundColor" Value="#c8c8cd"/>
+      </Style>
+    </ResourceDictionary>
+  </BasePage.Resources>
+  <BasePage.ToolbarItems>
+    <!--<ToolbarItem Name="Menu1" Icon="logo"/>-->
+  </BasePage.ToolbarItems>
   <AbsoluteLayout>
-    <StackLayout>
-      <Label Text="Intercarnes" />
-    </StackLayout>
+      <Controls:InfiniteListView x:Name="listViews" VerticalOptions="StartAndExpand" ItemsSource="{Binding Items}" LoadMoreCommand="{Binding LoadMoreCommand}" AbsoluteLayout.LayoutFlags="All"
+                 AbsoluteLayout.LayoutBounds="0,0,1,1" Controls:MenuListView.ListItemTappedCommand="{Binding DetailsCommand}"> 
+        <Controls:InfiniteListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <StackLayout BackgroundColor="#eeeeee"
+              Orientation="Vertical">
+                <StackLayout Orientation="Horizontal">
+                  <Grid>
+                    <Label Grid.Row="0" Text="{Binding title}"
+                    TextColor="#000" FontSize="16"/>
+                    <Label Grid.Row="1" Text="{Binding date}"
+                      TextColor="#fa121a" FontSize="9" />
+                  </Grid>
+                </StackLayout>
+              </StackLayout>
+            </ViewCell>
+          </DataTemplate>
+        </Controls:InfiniteListView.ItemTemplate>
+      </Controls:InfiniteListView >
+    <ContentView x:Name="actIndBackground"
+                 BackgroundColor="#222222" Opacity="0.5"
+                 AbsoluteLayout.LayoutFlags="All"
+                 AbsoluteLayout.LayoutBounds="0,0,1,1"
+                 IsVisible="{Binding IsBusy}">
+    </ContentView>
+    <ActivityIndicator x:Name="actInd"
+                       AbsoluteLayout.LayoutFlags="PositionProportional"
+                       AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+                       IsRunning="{Binding IsBusy}"
+                       IsVisible="{Binding IsBusy}" />
   </AbsoluteLayout>
 </BasePage>

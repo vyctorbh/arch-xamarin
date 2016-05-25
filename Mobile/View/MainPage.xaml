@@ -25,9 +25,10 @@
               Orientation="Vertical">
                 <StackLayout Orientation="Horizontal">
                   <Image Source="{Binding image}" HeightRequest="65" WidthRequest="85" />
+                  <!---<Image HeightRequest="65" WidthRequest="85" />-->
                   <Grid>
                     <Label Grid.Row="0" Text="{Binding title}"
-                    TextColor="#9a9a9a" FontSize="12"/>
+                    TextColor="#000" FontSize="16"/>
                     <Label Grid.Row="1" Text="{Binding date}"
                       TextColor="#fa121a" FontSize="9" />
                   </Grid>

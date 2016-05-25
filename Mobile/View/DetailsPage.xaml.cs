@@ -13,6 +13,7 @@ namespace Mobile.View
         public DetailsPage()
         {
             InitializeComponent();
+			NavigationPage.SetTitleIcon(this, "icon.png");
         }
     }
 }

@@ -8,6 +8,6 @@
         <Label Grid.Row="1" Text="{Binding Data}" />
       </Grid>
     <WebView VerticalOptions="StartAndExpand" Source="{Binding ContentHtml}" AbsoluteLayout.LayoutFlags="All"
-         AbsoluteLayout.LayoutBounds="0.5,0.8,1,1"></WebView>
+         AbsoluteLayout.LayoutBounds="0.6,0.9,1,1"></WebView>
   </AbsoluteLayout>
 </BasePage>

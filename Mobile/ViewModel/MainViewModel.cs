@@ -94,6 +94,7 @@ namespace Mobile.ViewModel
         {
             if(message.Contains("Basic"))
                 Message = message;
+			
         }
 
         private string _message = "Default Message";

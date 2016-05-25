@@ -24,16 +24,31 @@ namespace ApiRepository.Repository
                               .Accept
                               .Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            _client.BaseAddress = new Uri(baseUrl);
+			_client.BaseAddress = new Uri("http://afrig.com.br/api/service.php/");
         }
 
         public async Task<Result<Address>> Search(string search, string latitude, string longitude)
         {
-            using (var client = new RestClient(_client.BaseAddress))
+			Uri url = _client.BaseAddress;
+			url = new Uri("http://afrig.com.br/api/service.php/");
+			string category = "1";
+			if(search.Contains("Intercarnes"))
+			{
+				category = "9";
+			}
+			if(search.Contains("Cotacao"))
+			{
+				category = "11";
+			}
+			if(search.Contains("Tabela"))
+			{
+				category = "10";
+			}
+			using (var client = new RestClient(_client.BaseAddress+"wp_posts?category="+category))
             {
-                var request = new RestRequest("wp-json/posts", HttpMethod.Get);
-                request.AddHeader("Authorization", latitude);
-                request.AddParameter("filter[s]", search);
+				var request = new RestRequest(HttpMethod.Get);
+                //request.AddHeader("Authorization", latitude);
+                //request.AddParameter("filter[s]", search);
 
                 client.IgnoreResponseStatusCode = true;
 

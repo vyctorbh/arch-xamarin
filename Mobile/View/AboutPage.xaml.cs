@@ -14,6 +14,7 @@ namespace Mobile.View
         {
             InitializeComponent();
             NavigationPage.SetHasBackButton(this, false);
+			NavigationPage.SetTitleIcon(this, "icon.png");
         }
     }
 }

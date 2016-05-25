@@ -118,7 +118,7 @@ namespace Mobile.Helper
             //    menuSelect = (Mobile.Model.MenuItem)((ItemTappedEventArgs)item).Item;
             //}
 
-            var command = (ICommand)lv?.GetValue(ListItemTappedCommandProperty);
+            var command = (ICommand)lv.GetValue(ListItemTappedCommandProperty);
             if (command == null) return;
 
             if (command.CanExecute(item))

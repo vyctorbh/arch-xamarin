@@ -58,8 +58,11 @@ namespace Mobile.Model
 
             foreach (var item in items.listaddress)
             {
-                this.Items.Add(new MainModel() { title = item.title, link = item.link, id = item.ID, date = item.date, image = item.image.guid, content = item.content });
-                i++;
+				this.Items.Add(new MainModel() { title = item.title, link = item.link, id = item.ID, date = item.date, image = item.image, content = item.content });
+				if (i == 30) {
+					break;
+				}
+				i++;
             }
             //Task.Delay(1000);
             this.IsLoading = false;

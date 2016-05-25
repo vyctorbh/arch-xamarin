@@ -96,11 +96,27 @@
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Service\MessageService.cs" />
+    <Compile Include="ViewModel\PdfViewModel.cs" />
+    <Compile Include="View\PDFPage.xaml.cs">
+      <DependentUpon>PDFPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\CustomWebView.cs" />
+    <Compile Include="ViewModel\TabelaViewModel.cs" />
+    <Compile Include="View\TabelaPage.xaml.cs">
+      <DependentUpon>TabelaPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PDFPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\TabelaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

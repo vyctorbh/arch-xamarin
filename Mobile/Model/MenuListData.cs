@@ -23,14 +23,14 @@ namespace Mobile.Model
             this.Add(new MenuItem()
             {
                 Title = "Cotação Suíno",
-                IconSource = "cow.png",
+                IconSource = "pig.png",
                 MainType = _locator.AboutPage
             });
 
             this.Add(new MenuItem()
             {
                 Title = "Informe Intercarnes",
-                IconSource = "Map.png",
+				IconSource = "cow.png",
                 MainType = _locator.IntercarnesPage
             });
 
@@ -38,7 +38,7 @@ namespace Mobile.Model
             {
                 Title = "Pos. do Mercado",
                 IconSource = "posicionamento.png",
-                MainType = _locator.MainPage
+					MainType = _locator.TabelaPage
             });
         }
     }

@@ -11,5 +11,7 @@
         public string AboutPage = "AboutPageKey";
         public string IntercarnesPage = "IntercarnesPageKey";
         public string DetailsPage = "DetailsPageKey";
+		public string PDFPage = "PDFPageKey";
+		public string TabelaPage = "TabelaKey";
     }
 }

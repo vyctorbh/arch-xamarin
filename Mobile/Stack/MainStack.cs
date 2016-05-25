@@ -27,6 +27,8 @@ namespace Mobile.Stack
                 BarTextColor = Color.Red
             };
 
+
+
             //NavigationPage.SetTitleIcon(null, "logo.png");
 
             MainPage = new MasterDetailPage()
@@ -55,6 +57,8 @@ namespace Mobile.Stack
             _navigationService.Map(_locator.AboutPage, typeof(AboutPage));
             _navigationService.Map(_locator.IntercarnesPage, typeof(IntercarnesPage));
             _navigationService.Map(_locator.DetailsPage, typeof(DetailsPage));
+			_navigationService.Map(_locator.PDFPage, typeof(PDFPage));
+			_navigationService.Map(_locator.TabelaPage, typeof(TabelaPage));
         }
 
         protected override void MapViewModels()
@@ -63,6 +67,9 @@ namespace Mobile.Stack
             _pageService.Map(typeof(AboutPage), typeof(AboutViewModel));
             _pageService.Map(typeof(IntercarnesPage), typeof(IntercarnesViewModel));
             _pageService.Map(typeof(DetailsPage), typeof(DetailsViewModel));
+			_pageService.Map(typeof(PDFPage), typeof(PdfViewModel));
+			_pageService.Map(typeof(TabelaPage), typeof(TabelaViewModel));
+			//_pageService.Map(typeof(MenuPage), typeof(MenuViewModel));
         }
 
         protected override string NavigationStartPageKey
