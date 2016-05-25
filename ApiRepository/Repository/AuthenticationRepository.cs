@@ -43,11 +43,11 @@ namespace ApiRepository.Repository
                 string hed = "Basic " + userbase64;
                 request.AddHeader("Authorization", hed);
 
-				return new Result<string>()
+				/*return new Result<string>()
 				{
 					Success = true,
 					Value = hed
-				};
+				};*/
 
                 client.IgnoreResponseStatusCode = true;
                 bool error = false;
