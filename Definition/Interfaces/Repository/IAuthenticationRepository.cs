@@ -9,6 +9,7 @@ namespace Definition.Interfaces.Repository
 {
     public interface IAuthenticationRepository
     {
+		Task<Result<Users>> Me(string token);
         Task<Result<string>> Login(string email, string password);
     }
 }

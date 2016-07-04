@@ -44,7 +44,7 @@ namespace Mobile.Stack
                 Title = "Menu",
                 Icon = "Menu.png",  //TODO: add in default icon 
                 BindingContext = new MenuViewModel(),
-                BackgroundColor = Color.FromHex("5ec8de")
+                BackgroundColor = Color.FromHex("2E97DE")
             };
         }
 

@@ -39,7 +39,7 @@ namespace Mobile.Model
 
         public async Task List(string search, string latitude, string longitude, string numberpage, string skippage)
         {
-            this.IsLoading = true;
+            /*this.IsLoading = true;
             if (String.IsNullOrEmpty(search))
             {
                 search = "Belo Horizonte";
@@ -62,7 +62,7 @@ namespace Mobile.Model
                 i++;
             }
             Task.Delay(1000);
-            this.IsLoading = false;
+            this.IsLoading = false;*/
         }
     }
 }

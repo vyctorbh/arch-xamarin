@@ -9,7 +9,7 @@ namespace Mobile.Helper
     public struct Color
     {
         public static readonly Color Purple = 0xB455B6;
-        public static readonly Color Blue = 0x5ec8de;
+        public static readonly Color Blue = 0x2E97DE;
         public static readonly Color DarkBlue = 0x2C3E50;
         public static readonly Color Green = 0x77D065;
         public static readonly Color Gray = 0x738182;

@@ -113,6 +113,7 @@
     <BundleResource Include="Resources\Icon-Small%402x.png" />
     <BundleResource Include="Resources\Icon-Small%403x.png" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <BundleResource Include="Resources\Add_Icon.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="ExifLib, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
@@ -222,15 +223,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\logo%402x - Copy.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\logo%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\logo%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Map.png" />

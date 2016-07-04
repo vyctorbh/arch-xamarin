@@ -3,25 +3,84 @@
           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
           x:Class="Mobile.View.LoginPage">
 
-  <AbsoluteLayout>
-    <StackLayout Spacing="20" Padding="50" VerticalOptions="Center" HorizontalOptions="Center" AbsoluteLayout.LayoutFlags="PositionProportional"
-                       AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1">
-      <Image Source="logo.png"></Image>
-      <Entry Placeholder="Usuario" Text="{Binding Login.Email}"/>
-      <Entry Placeholder="Senha" Text="{Binding Login.Password}" IsPassword="true"/>
-      <Button Text="Entrar" TextColor="White" BackgroundColor="#5ec8de" Command="{Binding LoginCommand}" IsEnabled="{Binding NotIsBusy}"></Button>
-    </StackLayout>
-    <ContentView x:Name="actIndBackground"
-                 BackgroundColor="#222222" Opacity="0.5"
-                 AbsoluteLayout.LayoutFlags="All"
-                 AbsoluteLayout.LayoutBounds="0,0,1,1"
-                 IsVisible="{Binding IsBusy}">
-    </ContentView>
-    <ActivityIndicator x:Name="actInd"
-                       AbsoluteLayout.LayoutFlags="PositionProportional"
-                       AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
-                       IsRunning="{Binding IsBusy}"
-                       IsVisible="{Binding IsBusy}" />
-  </AbsoluteLayout>
-
+		<Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition
+                    Height="Auto" />
+                <RowDefinition
+                    Height="*" />
+                <RowDefinition
+                    Height="Auto"  />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <RelativeLayout
+                Grid.Row="0"
+				HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
+		  		<StackLayout Spacing="0" WidthRequest="240">
+					<StackLayout.Padding>
+						0, 80, 0, 0
+					</StackLayout.Padding>
+					<Image Source="logo.png"></Image>
+				</StackLayout>
+			</RelativeLayout>
+            <RelativeLayout
+                Grid.Row="1"
+				HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition
+                            Height="*" />
+                    </Grid.RowDefinitions>
+					  <StackLayout Spacing="0" WidthRequest="270" Grid.Row="0">
+							<StackLayout.Padding>
+								0, 20, 0, 0
+							</StackLayout.Padding>
+					      <Entry Placeholder="Usuario" Text="{Binding Login.Email}" WidthRequest="300" HeightRequest="60" HorizontalOptions="CenterAndExpand" />
+					      <Entry Placeholder="Senha" Text="{Binding Login.Password}" WidthRequest="300" IsPassword="true" HeightRequest="60" HorizontalOptions="CenterAndExpand" />
+					  </StackLayout>
+                </Grid>
+            </RelativeLayout>
+            <RelativeLayout
+                Grid.Row="2"
+				HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
+			<StackLayout Spacing="0" WidthRequest="240">
+				<StackLayout.Padding>
+					0, 0, 0, 50
+				</StackLayout.Padding>
+				<Button Text="Entrar" WidthRequest="240" TextColor="White" BackgroundColor="#0AB396" Command="{Binding LoginCommand}" IsEnabled="{Binding NotIsBusy}"></Button>
+			</StackLayout>
+			</RelativeLayout>
+            <RelativeLayout
+                Grid.RowSpan="3"
+				HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
+				<ContentView x:Name="actIndBackground"
+		                 BackgroundColor="#222222" Opacity="0.5"
+		                 AbsoluteLayout.LayoutFlags="All"
+		                 AbsoluteLayout.LayoutBounds="0,0,1,1"
+		                 IsVisible="{Binding IsBusy}"></ContentView>
+				<ActivityIndicator x:Name="actInd"
+		                       AbsoluteLayout.LayoutFlags="PositionProportional"
+		                       AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+		                       IsRunning="{Binding IsBusy}"
+		                       IsVisible="{Binding IsBusy}" />
+			</RelativeLayout>
+	</Grid>
 </BasePage>

@@ -22,7 +22,7 @@ namespace Mobile.ViewModel
             _defaultMessenger = defaultMessenger;
             this._messageService = DependencyService.Get<Service.IMessageService>();
             IsBusy = false;
-            loginModel.Email = "vyctorbh@gmail.com";
+            loginModel.Email = "admin@dev.com";
             loginModel.Password = "12345678";
             
             Login = loginModel;

@@ -87,8 +87,8 @@ namespace Mobile.ViewModel
 
         protected virtual async void ExecuteLoadModelsCommand()
         {
-            await MainModel.List(null, null, null, this.numberpage, this.skippage);
-            this.Items = MainModel.Items;
+            //await MainModel.List(null, null, null, this.numberpage, this.skippage);
+            //this.Items = MainModel.Items;
         }
 
         public MainViewModel(IAppLoader appLoader, MainModel mainModel, IDefaultMessenger defaultMessenger) : base(defaultMessenger)

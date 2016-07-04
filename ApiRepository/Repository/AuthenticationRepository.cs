@@ -30,6 +30,21 @@ namespace ApiRepository.Repository
             _client.BaseAddress = new Uri(baseUrl);
         }
 
+		public async Task<Result<Users>> Me(string token)
+		{
+			using (var client = new RestClient(_client.BaseAddress))
+			{
+				var request = new RestRequest("user/me", HttpMethod.Get);
+				request.AddParameter("access_token", token);
+
+				client.IgnoreResponseStatusCode = true;
+
+				var result = await client.Execute<List<Users>>(request);
+
+				return new Result<Users>() { Success = true, Values = result.Data };
+			}
+		}
+
 
         public async Task<Result<string>> Login(string email, string password)
         {

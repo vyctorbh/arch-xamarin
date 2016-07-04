@@ -9,11 +9,11 @@ namespace Mobile
     public class Config
     {
 
-        public const string BaseLoginUrl = "http://dokkuapp.com:3005";
-        public const string BaseUrl = "http://dokkuapp.com:3005/api/v1";
+        public const string BaseLoginUrl = "http://dev.sgcapital.com.br";
+        public const string BaseUrl = "http://dev.sgcapital.com.br/api/v1";
         public const string google_secret_key = "AIzaSyDgZAaDRW7H6EWdT8exxHSNcFZPOoR-mCU";
-        public const string client_id = "806258fc8a80342850da5404e8ebc974ef065ab89a53a8eb53740a34bdab0df2";
-        public const string secret_id = "b4c0b2813369b21a7e82e406d43028fb24252dd822caed79117f2c0c98bcce24";
+        public const string client_id = "6551a588a3e6842386539720e80c13e2cfc63bb69ab897f1f37aa88de20c1085";
+        public const string secret_id = "c1bc88a1993facee392072abccf7fbce40469db0e576164c4ba4dcf0a7fdc48f";
 
     }
 }

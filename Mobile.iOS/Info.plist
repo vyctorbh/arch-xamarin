@@ -22,10 +22,8 @@
 	</array>
 	<key>MinimumOSVersion</key>
 	<string>6.0</string>
-	<key>CFBundleDisplayName</key>
-	<string>Gogopark</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.gogopark.Mobile</string>
+	<string>com.noort.sgcapital</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>CFBundleIconFiles</key>
@@ -56,8 +54,10 @@
 		<string>MKDirectionsModePedestrian</string>
 	</array>
 	<key>NSLocationAlwaysUsageDescription</key>
-    <string>Can we use your location</string>
+	<string>Can we use your location</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-    <string>We are using your location</string>
+	<string>We are using your location</string>
+	<key>CFBundleName</key>
+	<string>SG Capital - Projeção</string>
 </dict>
 </plist>
