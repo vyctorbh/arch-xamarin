@@ -19,6 +19,7 @@ namespace Mobile
 		public SimulateAddPage()
 		{
 			InitializeComponent();
+			this.AnimationName = Rg.Plugins.Popup.Enums.AnimationsName.MoveBottom;
 			this.BindingContext = this.person;
 
 			this.dataForm.PropertyDataSourceProvider = new UserPropertyDataSourceProvider();
