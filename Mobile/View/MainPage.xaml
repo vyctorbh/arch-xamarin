@@ -16,7 +16,7 @@
     </ResourceDictionary>
   </local:BasePage.Resources>
   <local:BasePage.ToolbarItems>
-    <ToolbarItem Name="Menu1" Icon="Add_Icon" Command="{Binding IconbarCommand}"/>
+    <ToolbarItem Name="Menu1" Icon="Add_Icon" Clicked="OnOpenPupup"/>
   </local:BasePage.ToolbarItems>
 
   <Grid BackgroundColor="#F8F8F8">

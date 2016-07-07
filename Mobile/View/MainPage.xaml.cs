@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Linq;
-using Telerik.XamarinForms.DataControls.ListView;
+using Rg.Plugins.Popup.Extensions;
 using Xamarin.Forms;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -20,6 +18,13 @@ namespace Mobile.View
 			listView.ItemsSource = this.GetSource(50);
 			listView.SwipeOffset = Device.OnPlatform<Thickness>(new Thickness(100, 0, 100, 0), 70, 0);
 			listView.LayoutDefinition.ItemLength = Device.OnPlatform<double>(60, -1, -1);
+		}
+
+		// Button Click
+		private async void OnOpenPupup(object sender, EventArgs e)
+		{
+			var page = new SimulateAddPage();
+			await Navigation.PushPopupAsync(page);
 		}
 
 		private System.Collections.IEnumerable GetSource(int count)

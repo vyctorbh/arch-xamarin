@@ -86,11 +86,17 @@
     <Compile Include="UserDTO.cs" />
     <Compile Include="Data\AcessoDados.cs" />
     <Compile Include="Base\IConfig.cs" />
+    <Compile Include="View\SimulateAddPage.xaml.cs">
+      <DependentUpon>SimulateAddPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SimulateAddPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
