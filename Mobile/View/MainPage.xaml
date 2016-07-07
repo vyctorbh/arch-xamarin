@@ -1,56 +1,81 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<BasePage xmlns="http://xamarin.com/schemas/2014/forms"
+<local:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
           xmlns:Controls="clr-namespace:Mobile.Helper"
           xmlns:XlabsControls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
           xmlns:local="clr-namespace:Mobile.View"
+		  xmlns:telerik="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+          xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+          xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
           x:Class="Mobile.View.MainPage" Title="Descubra">
-  <BasePage.Resources>
+  <local:BasePage.Resources>
     <ResourceDictionary>
       <Style x:Key="SearchStyle" TargetType="SearchBar">
         <Setter Property="BackgroundColor" Value="#c8c8cd"/>
       </Style>
     </ResourceDictionary>
-  </BasePage.Resources>
-  <BasePage.ToolbarItems>
+  </local:BasePage.Resources>
+  <local:BasePage.ToolbarItems>
     <ToolbarItem Name="Menu1" Icon="Add_Icon" Command="{Binding IconbarCommand}"/>
-  </BasePage.ToolbarItems>
-  <AbsoluteLayout>
-    <StackLayout Orientation="Vertical">
-      <!--<XlabsControls:ButtonGroup x:Name="bgButton" ViewBackgroundColor="#c8c8cd" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" >
-    </XlabsControls:ButtonGroup>
-      <Controls:InfiniteListView x:Name="listViews" ItemsSource="{Binding Items}" VerticalOptions="Start" LoadMoreCommand="{Binding LoadMoreCommand}" IsLoading="{Binding IsLoading}">-->
-      <Controls:InfiniteListView x:Name="listViews" VerticalOptions="Start"> 
-        <Controls:InfiniteListView.ItemTemplate>
-          <DataTemplate>
-            <!--<ViewCell>
-              <StackLayout BackgroundColor="#eee"
-              Orientation="Vertical">
-                <StackLayout Orientation="Horizontal">
-                  <Label Text="{Binding nome}"
-                  TextColor="#f35e20"/>
-                  <Label Text="{Binding adrress}"
-                    TextColor="#f35e20" />
-                  <Label Text="{Binding cidade}"
-                    TextColor="#f35e20" />
+  </local:BasePage.ToolbarItems>
+
+  <Grid BackgroundColor="#F8F8F8">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition/>
+    </Grid.RowDefinitions>
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+		<StackLayout.Padding>
+		0, 8, 0, 0
+		</StackLayout.Padding>
+    	<Label Text="Lista de Projeções" TextColor="#BABABA" FontSize="12"/>
+    </StackLayout>
+    <telerikDataControls:RadListView x:Name="listView" Grid.Row="1" IsItemSwipeEnabled="True" SwipeThreshold="5" BackgroundColor="White" SelectionMode="None">
+      <telerikDataControls:RadListView.ItemStyle>
+        <telerikListView:ListViewItemStyle BorderWidth="1"/>
+      </telerikDataControls:RadListView.ItemStyle>
+      <telerikDataControls:RadListView.ItemTemplate>
+        <DataTemplate>
+          <telerikListView:ListViewTemplateCell>
+            <telerikListView:ListViewTemplateCell.View>
+              <StackLayout HorizontalOptions="Center" Padding="10">
+                <StackLayout HorizontalOptions="Center">
+		          <Grid>
+		            <Grid.ColumnDefinitions>
+					  <ColumnDefinition Width="*"/>
+		              <ColumnDefinition Width="100"/>
+		            </Grid.ColumnDefinitions>
+					<StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="0">
+						<StackLayout.Padding>
+						5, 8, 0, 0
+						</StackLayout.Padding>
+						<Label Text="{Binding Name}"  TextColor="#474747" FontSize="16" />
+					</StackLayout>
+					<StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="1">
+						<StackLayout.Padding>
+						0, 8, 0, 0
+						</StackLayout.Padding>
+                    	<Label TextColor="#DA1A33" Text="{Binding Value}" FontSize="16" LineBreakMode="TailTruncation"/>
+					</StackLayout>
+		          </Grid>
                 </StackLayout>
               </StackLayout>
-            </ViewCell>-->
-              <local:AccordionCell IsSelected="{Binding Path=IsSelected}" />
-          </DataTemplate>
-        </Controls:InfiniteListView.ItemTemplate>
-      </Controls:InfiniteListView >
-    </StackLayout>
-    <ContentView x:Name="actIndBackground"
-                 BackgroundColor="#222222" Opacity="0.5"
-                 AbsoluteLayout.LayoutFlags="All"
-                 AbsoluteLayout.LayoutBounds="0,0,1,1"
-                 IsVisible="{Binding IsBusy}">
-    </ContentView>
-    <ActivityIndicator x:Name="actInd"
-                       AbsoluteLayout.LayoutFlags="PositionProportional"
-                       AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
-                       IsRunning="{Binding IsBusy}"
-                       IsVisible="{Binding IsBusy}" />
-  </AbsoluteLayout>
-</BasePage>
+            </telerikListView:ListViewTemplateCell.View>
+          </telerikListView:ListViewTemplateCell>
+        </DataTemplate>
+      </telerikDataControls:RadListView.ItemTemplate>
+      <telerikDataControls:RadListView.ItemSwipeContentTemplate>
+        <DataTemplate>
+          <Grid>
+            <Grid.ColumnDefinitions>
+			  <ColumnDefinition Width="5"/>
+              <ColumnDefinition/>
+              <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            <Button Text="Remover" BorderRadius="0" TextColor="White" BackgroundColor="#C23824" Clicked="DecreaseButtonClicked" Grid.Column="2"/>
+          </Grid>
+        </DataTemplate>
+      </telerikDataControls:RadListView.ItemSwipeContentTemplate>
+    </telerikDataControls:RadListView>
+  </Grid>
+</local:BasePage>

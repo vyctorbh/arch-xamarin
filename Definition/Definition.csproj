@@ -55,6 +55,10 @@
     <Compile Include="Model\Auth.cs" />
     <Compile Include="Model\Result.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Model\Users.cs" />
+    <Compile Include="Interfaces\Repository\ISimulateRepository.cs" />
+    <Compile Include="Model\Simulate.cs" />
+    <Compile Include="Interfaces\Service\ISimulateService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="GalaSoft.MvvmLight, Version=5.1.1.35049, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">

@@ -9,6 +9,12 @@ using XLabs.Ioc;
 using XLabs.Platform.Device;
 using XLabs.Platform.Services.Geolocation;
 
+[assembly: Xamarin.Forms.ExportRenderer(typeof(Telerik.XamarinForms.Chart.RadCartesianChart), typeof(Telerik.XamarinForms.ChartRenderer.iOS.CartesianChartRenderer))]
+[assembly: Xamarin.Forms.ExportRenderer(typeof(Telerik.XamarinForms.Chart.RadPieChart), typeof(Telerik.XamarinForms.ChartRenderer.iOS.PieChartRenderer))]
+[assembly: Xamarin.Forms.ExportRenderer(typeof(Telerik.XamarinForms.Input.RadCalendar), typeof(Telerik.XamarinForms.InputRenderer.iOS.CalendarRenderer))]
+[assembly: Xamarin.Forms.ExportRenderer(typeof(Telerik.XamarinForms.Input.RadDataForm), typeof(Telerik.XamarinForms.InputRenderer.iOS.DataFormRenderer))]
+[assembly: Xamarin.Forms.ExportRenderer(typeof(Telerik.XamarinForms.DataControls.RadListView), typeof(Telerik.XamarinForms.DataControlsRenderer.iOS.ListViewRenderer))]
+[assembly: Xamarin.Forms.ExportRenderer(typeof(Telerik.XamarinForms.Primitives.RadSideDrawer), typeof(Telerik.XamarinForms.PrimitivesRenderer.iOS.SideDrawerRenderer))]
 namespace Mobile.iOS
 {
     // The UIApplicationDelegate for the application. This class is responsible for launching the 
@@ -32,10 +38,16 @@ namespace Mobile.iOS
             container.Register<IDevice>(t => AppleDevice.CurrentDevice);
             container.Register<IGeolocator, Geolocator>();
             Resolver.SetResolver(container.GetResolver());
-            // End new Xlabs
-
+			// End new Xlabs
+			new Telerik.XamarinForms.ChartRenderer.iOS.PieChartRenderer();
+			new Telerik.XamarinForms.ChartRenderer.iOS.CartesianChartRenderer();
+			new Telerik.XamarinForms.InputRenderer.iOS.CalendarRenderer();
+			new Telerik.XamarinForms.DataControlsRenderer.iOS.ListViewRenderer();
+			new Telerik.XamarinForms.PrimitivesRenderer.iOS.SideDrawerRenderer();
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
+			Telerik.XamarinForms.Common.iOS.TelerikForms.Init();
+			Rg.Plugins.Popup.IOS.Popup.Init(); // Init Popup
+			LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
         }

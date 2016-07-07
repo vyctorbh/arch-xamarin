@@ -28,12 +28,13 @@ namespace Mobile.Stack
                 Title = "Descubra"
             };
 
-            MainPage = new MasterDetailPage()
-            {
-                BackgroundColor = Color.Transparent,
-                Master = BuildMenuPage(),
-                Detail = NavigationPage,
-                MasterBehavior = MasterBehavior.Popover
+			MainPage = new MasterDetailPage()
+			{
+				BackgroundColor = Color.Transparent,
+				Master = BuildMenuPage(),
+				Detail = NavigationPage,
+				MasterBehavior = MasterBehavior.Popover,
+				IsGestureEnabled = false
             };
         }
 

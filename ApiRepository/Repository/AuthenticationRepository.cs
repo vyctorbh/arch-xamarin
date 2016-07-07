@@ -1,5 +1,4 @@
-﻿using ApiRepository.Entity;
-using Definition.Interfaces.Repository;
+﻿using Definition.Interfaces.Repository;
 using Definition.Model;
 using RestSharp.Portable;
 using System;
@@ -32,7 +31,7 @@ namespace ApiRepository.Repository
 
 		public async Task<Result<Users>> Me(string token)
 		{
-			using (var client = new RestClient(_client.BaseAddress))
+			using (var client = new RestClient(_client.BaseAddress + "/api/v1"))
 			{
 				var request = new RestRequest("user/me", HttpMethod.Get);
 				request.AddParameter("access_token", token);

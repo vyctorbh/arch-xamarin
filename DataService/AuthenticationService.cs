@@ -30,12 +30,11 @@ namespace DataService
             return auth;
         }
 
-		public async Task<Auth> Me(string token)
+		public async Task<Users> Me(string token)
 		{
 			var result = await _authenticationRepository.Me(token);
-			Auth auth = new Auth();
-			auth.Success = result.Success;
-			auth.Mensagem = result.Value;
+			Users auth = new Users();
+			auth = result.Values.First();
 
 			return auth;
 		}

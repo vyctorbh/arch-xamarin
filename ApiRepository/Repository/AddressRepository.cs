@@ -1,5 +1,4 @@
-﻿using ApiRepository.Entity;
-using Definition.Interfaces.Repository;
+﻿using Definition.Interfaces.Repository;
 using Definition.Model;
 using RestSharp.Portable;
 using System;

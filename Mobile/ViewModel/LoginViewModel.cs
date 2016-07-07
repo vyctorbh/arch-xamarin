@@ -56,6 +56,29 @@ namespace Mobile.ViewModel
             }
         }
 
+		private RelayCommand _loadmoreCommand;
+		public RelayCommand LoadMoreCommand
+		{
+			get
+			{
+				return _loadmoreCommand
+					?? (_loadmoreCommand = new RelayCommand(
+						async () =>
+						{
+							IsBusy = true;
+							using (var dados = new AcessoDados())
+							{
+								var lista = dados.Listar();
+								if (lista != null && lista.Count > 0)
+								{
+									await _appLoader.LoadStack(StackEnum.Main);
+								}
+							}
+							IsBusy = false;
+						}));
+			}
+		}
+
         private RelayCommand _loginCommand;
         public RelayCommand LoginCommand
         {
@@ -72,6 +95,23 @@ namespace Mobile.ViewModel
 
                                    if (Login.IsAuthenticated)
                                    {
+									   Login.Token = Login.Value;
+									   await Login.Me();
+
+									   UserDTO user = new UserDTO
+									   {
+										    Id = Login.user.id,
+											Nome = Login.user.name,
+											Company = Login.user.account.subdomain,
+											Token = Login.Value
+										};
+
+									   using (var dados = new AcessoDados())
+									   {
+										   dados.Insert(user);
+										   var lista = dados.Listar();
+									   }
+				
                                        IsBusy = false;
                                        _defaultMessenger.Send(Login.Value);
                                        await _appLoader.LoadStack(StackEnum.Main);

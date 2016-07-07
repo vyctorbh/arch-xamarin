@@ -65,6 +65,7 @@ namespace Mobile
             SimpleIoc.Default.Register<IAuthenticationRepository>(() => new AuthenticationRepository(Config.BaseLoginUrl, Config.client_id, Config.secret_id));
             SimpleIoc.Default.Register<IExampleRepository>(() => new ExampleRepository(Config.BaseUrl, "examples"));
             SimpleIoc.Default.Register<IAddressRepository>(() => new AddressRepository(Config.BaseUrl));
+			SimpleIoc.Default.Register<ISimulateRepository>(() => new SimulateRepository(Config.BaseUrl));
         }
 
         private void InitializeDataServices()
@@ -72,6 +73,7 @@ namespace Mobile
             SimpleIoc.Default.Register<IAuthenticationService>(() => new AuthenticationService(ServiceLocator.Current.GetInstance<IAuthenticationRepository>()));
             SimpleIoc.Default.Register<IExampleService>(() => new ExampleService(ServiceLocator.Current.GetInstance<IExampleRepository>()));
             SimpleIoc.Default.Register<IAddressService>(() => new AddressService(ServiceLocator.Current.GetInstance<IAddressRepository>()));
+			SimpleIoc.Default.Register<ISimulateService>(() => new SimulateService(ServiceLocator.Current.GetInstance<ISimulateRepository>()));
         }
         
         private void InitializeMessengers()

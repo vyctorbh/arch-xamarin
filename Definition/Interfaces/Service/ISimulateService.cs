@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Definition.Interfaces.Service
 {
-    public interface IAuthenticationService
+    public interface ISimulateService
     {
-        Task<Auth> Authenticate(string email, string password);
-		Task<Users> Me(string token);
+		Task<Simulate> Get(int id);
     }
 }
