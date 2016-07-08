@@ -89,6 +89,7 @@
     <Compile Include="View\SimulateAddPage.xaml.cs">
       <DependentUpon>SimulateAddPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Helper\DateCell.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">
