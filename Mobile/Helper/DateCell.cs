@@ -12,8 +12,10 @@ namespace Mobile
 			but = new DatePicker()
 			{
 				Format = "dd/MM/yyyy",
+				WidthRequest = 400,
 				VerticalOptions = LayoutOptions.CenterAndExpand,
-				HorizontalOptions = LayoutOptions.CenterAndExpand
+				HeightRequest = 30,
+				HorizontalOptions = LayoutOptions.CenterAndExpand,
 			};
 			var layout = new StackLayout()
 			{
@@ -33,6 +35,43 @@ namespace Mobile
 			{
 				return but;
 			}
+		}
+	}
+
+	public class KeyValueCell : ViewCell
+	{
+		public string keys
+		{
+			get;
+			set;
+		}
+
+		public string values
+		{
+			get;
+			set;
+		}
+
+		public KeyValueCell()
+		{
+			View = new StackLayout()
+			{
+				Padding = new Thickness(15, 10),
+				Orientation = StackOrientation.Horizontal,
+				VerticalOptions = LayoutOptions.Center,
+				Children = {
+					new Label () {
+						Text = keys,
+						TextColor = Color.Purple,
+						HorizontalOptions = LayoutOptions.StartAndExpand
+					},
+					new Label () {
+						Text = values,
+						TextColor = Color.Gray,
+						HorizontalOptions = LayoutOptions.EndAndExpand
+					}
+				}
+			};
 		}
 	}
 

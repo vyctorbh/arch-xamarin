@@ -59,6 +59,7 @@ namespace Mobile.Stack
         {
             _pageService.Map(typeof(MainPage), typeof(MainViewModel));
             _pageService.Map(typeof(AboutPage), typeof(AboutViewModel));
+			_pageService.Map(typeof(SimulateAddPage), typeof(SimulateViewModel));
         }
 
         protected override string NavigationStartPageKey

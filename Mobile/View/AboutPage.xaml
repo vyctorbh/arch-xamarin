@@ -2,8 +2,41 @@
 <local:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 		xmlns:local="clr-namespace:Mobile.View"
-          x:Class="Mobile.View.AboutPage">
-  <StackLayout>
-    <Label Text="Ola oijiosjoi jisjdo jsoijdojs odijosj dijs odjisjiodjso" />
-  </StackLayout>
+          x:Class="Mobile.View.AboutPage" Title="BRF">
+	<local:BasePage.ToolbarItems>
+     <ToolbarItem Name="Menu1" Icon="Edit_Icon"/>
+	 <ToolbarItem Name="Menu2" Icon="Add_Icon"/>
+    </local:BasePage.ToolbarItems>
+    <Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="50" />
+				<RowDefinition Height="80" />
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
+			<Grid.RowSpacing>0</Grid.RowSpacing>
+			<StackLayout Grid.Row="0" BackgroundColor="#2E97DE">
+
+			</StackLayout>
+			<StackLayout Grid.Row="1" BackgroundColor="Fuchsia">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="*" />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width=""/>
+					<ColumnDefinition Width=""/>
+					<ColumnDefinition Width=""/>
+				</Grid.ColumnDefinitions>
+				<StackLayout HorizontalOptions="CenterAndExpand" Grid.Column="0">
+					<Label Text="Indexador" />
+					<Label Text="102%" />
+				</StackLayout>
+			</Grid>
+			</StackLayout>
+
+			<StackLayout Grid.Row="2" BackgroundColor="Green">
+
+			</StackLayout>
+			
+	</Grid>
 </local:BasePage>

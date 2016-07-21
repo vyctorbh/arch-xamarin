@@ -3,35 +3,27 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
 		     xmlns:local="clr-namespace:Mobile"
+		     xmlns:viewmodel="clr-namespace:Mobile.ViewModel"
 		     xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
              x:Class="Mobile.SimulateAddPage">
-<StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" HeightRequest="350">
+<pages:PopupPage.BindingContext>
+		<viewmodel:SimulateViewModel />
+</pages:PopupPage.BindingContext>
+<StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" HeightRequest="210" WidthRequest="400">
     <StackLayout BackgroundColor="White" Padding="0, 10, 0, 0">
       <Label Text="Cadastrar Projeção" TextColor="Gray" FontSize="20" HorizontalOptions="Center"></Label>
-      <ScrollView HeightRequest="300">
+      <ScrollView HeightRequest="210">
         <StackLayout>
-          <StackLayout Orientation="Horizontal">
-			  <Grid>
-			    <Grid.RowDefinitions>
-			      <RowDefinition/>
-			      <RowDefinition Height="Auto"/>
-			    </Grid.RowDefinitions>
-					<TableView Intent="Form">
-								<TableRoot>
-									<TableSection Title="Nome">
-										<EntryCell Text="" />
-									</TableSection>
-									<TableSection Title="Indexador">
-										<EntryCell Text="" Keyboard="Numeric"/>
-									</TableSection>
-									<TableSection Title="Data Fim Aplicação">
-										<local:DateCell />
-									</TableSection>
-								</TableRoot>
-							</TableView>		
-			  </Grid>
-          </StackLayout>
-          <Button Text="Close" Clicked="OnClose"></Button>
+			<StackLayout Padding="15,10">
+				<ScrollView VerticalOptions="StartAndExpand">
+					<StackLayout>
+						<Entry Placeholder="Titulo da Projeção" TextColor="#77d065" Text="{Binding Login}"  />
+						<Entry Placeholder="Indexador"  TextColor="#77d065" />
+						<DatePicker Format = "dd/MM/yyyy" TextColor="#77d065"  />
+					</StackLayout>
+				</ScrollView>
+			</StackLayout>
+          <Button Text="Cadastrar" Command="{Binding AboutCommand}"></Button>
         </StackLayout>
       </ScrollView>
     </StackLayout>
