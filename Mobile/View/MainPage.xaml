@@ -7,7 +7,7 @@
 		  xmlns:telerik="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
           xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
           xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
-          x:Class="Mobile.View.MainPage" Title="Descubra">
+          x:Class="Mobile.View.MainPage" Title="Falconi">
   <local:BasePage.Resources>
     <ResourceDictionary>
       <Style x:Key="SearchStyle" TargetType="SearchBar">

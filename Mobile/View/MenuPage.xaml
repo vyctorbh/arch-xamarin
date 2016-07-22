@@ -3,13 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 		     xmlns:local="clr-namespace:Mobile.View"
 			 xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
-             x:Class="Mobile.View.MenuPage">
-  <Grid>
-    <Grid.RowDefinitions>
-      <RowDefinition/>
-      <RowDefinition Height="Auto"/>
-    </Grid.RowDefinitions>
-    <telerikInput:RadDataForm  x:Name="dataForm" Source="{Binding}"/>
-    <Button  Grid.Row="1" Text="Commit"/>
-  </Grid>
+             x:Class="Mobile.View.MenuPage" BackgroundColor="#333333">
+	<StackLayout Spacing="0" VerticalOptions="FillAndExpand">
+		<ContentView>
+			<ContentView.Padding>10,36,0,5</ContentView.Padding>
+				<Label TextColor="#F8F8F8">MENU</Label>
+			</ContentView>
+			<ListView VerticalOptions="FillAndExpand" BackgroundColor="Transparent" x:Name="listMenu" SeparatorVisibility="None">
+			</ListView>
+	</StackLayout>
 </local:BasePage>

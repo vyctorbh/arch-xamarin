@@ -1,42 +1,121 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <local:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-		xmlns:local="clr-namespace:Mobile.View"
-          x:Class="Mobile.View.AboutPage" Title="BRF">
+		  xmlns:local="clr-namespace:Mobile.View"
+		  xmlns:controls="clr-namespace:Mobile.Helper"
+		  xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+		  xmlns:telerik="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+		  xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+		  x:Class="Mobile.View.AboutPage" Title="BRF">
 	<local:BasePage.ToolbarItems>
-     <ToolbarItem Name="Menu1" Icon="Edit_Icon"/>
-	 <ToolbarItem Name="Menu2" Icon="Add_Icon"/>
+     <!--<ToolbarItem Name="Menu1" Icon="Edit_Icon"/>-->
+	 <ToolbarItem Name="Menu2" Icon="Add_Icon" Clicked="OnOpenPupup"/>
     </local:BasePage.ToolbarItems>
+	<local:BasePage.Content>
     <Grid>
 			<Grid.RowDefinitions>
 				<RowDefinition Height="50" />
-				<RowDefinition Height="80" />
-				<RowDefinition Height="*" />
+				<RowDefinition Height="70" />
+				<RowDefinition />
 			</Grid.RowDefinitions>
 			<Grid.RowSpacing>0</Grid.RowSpacing>
-			<StackLayout Grid.Row="0" BackgroundColor="#2E97DE">
-
+			<StackLayout Grid.Row="0" BackgroundColor="#2E97DE" Padding="5">
+				<controls:SegmentedControl VerticalOptions="CenterAndExpand">
+					<controls:SegmentedControl.Children>
+						<controls:SegmentedControlOption Text="Todos"  />
+						<controls:SegmentedControlOption Text="Falconi" />
+						<controls:SegmentedControlOption Text="BRF" />
+					</controls:SegmentedControl.Children>
+				</controls:SegmentedControl>
 			</StackLayout>
-			<StackLayout Grid.Row="1" BackgroundColor="Fuchsia">
+			<StackLayout Grid.Row="1" BackgroundColor="White" HorizontalOptions="CenterAndExpand">
 			<Grid>
+				<Grid.ColumnSpacing>0</Grid.ColumnSpacing>
 				<Grid.RowDefinitions>
-					<RowDefinition Height="*" />
+					<RowDefinition Height="70" />
 				</Grid.RowDefinitions>
 				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width=""/>
-					<ColumnDefinition Width=""/>
-					<ColumnDefinition Width=""/>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="Auto"/>
 				</Grid.ColumnDefinitions>
-				<StackLayout HorizontalOptions="CenterAndExpand" Grid.Column="0">
-					<Label Text="Indexador" />
-					<Label Text="102%" />
+				<StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="0" HeightRequest="70">
+					<StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+						<Label Text="102%" FontSize="16" TextColor="#4C4C4C"/>
+						<Label Text="Indexador" FontSize="10" TextColor="#7F7F7F"/>
+					</StackLayout>
+				</StackLayout>
+				<StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  Grid.Column="1" HeightRequest="70">
+					<StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+						<Label Text="12/04/1985" FontSize="16" TextColor="#4C4C4C"/>
+						<Label Text="Fim Aplicação" FontSize="10" TextColor="#7F7F7F"/>
+					</StackLayout>
+				</StackLayout>
+				<StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="#E94C36" Grid.Column="2" Padding="10" HeightRequest="70">
+					<StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+						<Label Text="R$10.000,00" FontSize="14" TextColor="White"/>
+					</StackLayout>
 				</StackLayout>
 			</Grid>
 			</StackLayout>
 
-			<StackLayout Grid.Row="2" BackgroundColor="Green">
-
-			</StackLayout>
-			
+			<telerikDataControls:RadListView x:Name="listView" Grid.Row="2" VerticalOptions="StartAndExpand" IsItemSwipeEnabled="True" SwipeThreshold="5" BackgroundColor="White" SelectionMode="None">
+		      <telerikDataControls:RadListView.ItemStyle>
+		        <telerikListView:ListViewItemStyle BorderWidth="1"/>
+		      </telerikDataControls:RadListView.ItemStyle>
+		      <telerikDataControls:RadListView.ItemTemplate>
+		        <DataTemplate>
+		          <telerikListView:ListViewTemplateCell>
+		            <telerikListView:ListViewTemplateCell.View>
+		              <StackLayout HorizontalOptions="Center" Padding="10">
+		                <StackLayout HorizontalOptions="Center">
+				          <Grid>
+				            <Grid.ColumnDefinitions>
+							  <ColumnDefinition Width="*"/>
+				              <ColumnDefinition Width="100"/>
+				            </Grid.ColumnDefinitions>
+							<StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="0">
+								<StackLayout.Padding>
+								5, 8, 0, 0
+								</StackLayout.Padding>
+								<Label Text="{Binding Content}"  TextColor="#474747" FontSize="16" />
+							</StackLayout>
+							<StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="1">
+								<StackLayout.Padding>
+								0, 8, 0, 0
+								</StackLayout.Padding>
+		                    	<Label TextColor="#DA1A33" Text="{Binding Value}" FontSize="16" LineBreakMode="TailTruncation"/>
+							</StackLayout>
+				          </Grid>
+		                </StackLayout>
+		              </StackLayout>
+		            </telerikListView:ListViewTemplateCell.View>
+		          </telerikListView:ListViewTemplateCell>
+		        </DataTemplate>
+		      </telerikDataControls:RadListView.ItemTemplate>
+			<telerikDataControls:RadListView.GroupDescriptors>
+			    <telerikListView:PropertyGroupDescriptor PropertyName="Day"/>
+			 </telerikDataControls:RadListView.GroupDescriptors>
+		    <telerikDataControls:RadListView.GroupHeaderTemplate>
+		      <DataTemplate>
+		        <Grid BackgroundColor="#F8F8F8">
+		          <Label Text="{Binding }" TextColor="#7F7F7F" FontSize="12" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+		        </Grid>
+		      </DataTemplate>
+		    </telerikDataControls:RadListView.GroupHeaderTemplate>
+		      <telerikDataControls:RadListView.ItemSwipeContentTemplate>
+		        <DataTemplate>
+		          <Grid>
+		            <Grid.ColumnDefinitions>
+					  <ColumnDefinition Width="5"/>
+		              <ColumnDefinition/>
+		              <ColumnDefinition Width="100"/>
+		            </Grid.ColumnDefinitions>
+		            <Button Text="Remover" BorderRadius="0" TextColor="White" BackgroundColor="#C23824" Grid.Column="2"/>
+		          </Grid>
+		        </DataTemplate>
+		      </telerikDataControls:RadListView.ItemSwipeContentTemplate>
+		    </telerikDataControls:RadListView>		
 	</Grid>
+	</local:BasePage.Content>
 </local:BasePage>

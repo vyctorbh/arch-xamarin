@@ -91,6 +91,10 @@
     </Compile>
     <Compile Include="Helper\DateCell.cs" />
     <Compile Include="ViewModel\SimulateViewModel.cs" />
+    <Compile Include="View\Event.cs" />
+    <Compile Include="View\SimulateItemAddPage.xaml.cs">
+      <DependentUpon>SimulateItemAddPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">
@@ -98,6 +102,9 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="View\SimulateAddPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SimulateItemAddPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

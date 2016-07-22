@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		x:Class="Mobile.SimulateItemAddPage"
+		xmlns:local="clr-namespace:Mobile"
+		xmlns:viewmodel="clr-namespace:Mobile.ViewModel"
+		xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup">
+<pages:PopupPage.BindingContext>
+		<viewmodel:SimulateViewModel />
+</pages:PopupPage.BindingContext>
+<StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" HeightRequest="210" WidthRequest="400">
+    <StackLayout BackgroundColor="White" Padding="0, 10, 0, 0">
+      <Label Text="Cadastrar Parcela" TextColor="Gray" FontSize="20" HorizontalOptions="Center"></Label>
+      <ScrollView HeightRequest="210">
+        <StackLayout>
+			<StackLayout Padding="15,10">
+				<ScrollView VerticalOptions="StartAndExpand">
+					<StackLayout>
+						<Picker x:Name="pickerView" TextColor="#77d065" />
+						<Entry Placeholder="Valor"  TextColor="#77d065" />
+						<DatePicker Format = "dd/MM/yyyy" TextColor="#77d065"  />
+					</StackLayout>
+				</ScrollView>
+			</StackLayout>
+          <Button Text="Adicionar" Command="{Binding AboutCommand}" VerticalOptions="FillAndExpand"></Button>
+        </StackLayout>
+      </ScrollView>
+    </StackLayout>
+  </StackLayout>
+</pages:PopupPage>

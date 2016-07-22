@@ -18,7 +18,6 @@ namespace Mobile.ViewModel
 		{
 			//_defaultMessenger = defaultMessenger;
 			this._messageService = DependencyService.Get<Service.IMessageService>();
-			this.Login = "www";
 		}
 
 		private String _login = null;

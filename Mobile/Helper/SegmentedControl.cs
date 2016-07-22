@@ -2,9 +2,9 @@
 using Xamarin.Forms;
 using System.Collections.Generic;
 
-namespace SegmentedControl
+namespace Mobile.Helper
 {
-	public class SegmentedControl : View, IViewContainer<SegmentedControlOption>
+	public class SegmentedControl : Xamarin.Forms.View, IViewContainer<SegmentedControlOption>
 	{
 		public IList<SegmentedControlOption> Children { get; set; }
 
@@ -29,7 +29,7 @@ namespace SegmentedControl
 		}
 	}
 
-	public class SegmentedControlOption:View
+	public class SegmentedControlOption : Xamarin.Forms.View
 	{
 		public static readonly BindableProperty TextProperty = BindableProperty.Create<SegmentedControlOption, string> (p => p.Text, "");
 
